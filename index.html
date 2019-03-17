@@ -1,15 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="fill">
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="content-type" content="text/html; charset=UTF8">
-    </head>
-    <body>
-        <canvas id="c"></canvas>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <style>
-            * { margin:0; padding:0; }
-            html, body { width:100%; height:100%; }
-            canvas { display:block; }
+            .fill { 
+                min-height: 100%;
+                height: 100%;
+            }
+            .left{
+                background:#222;
+                color: #ccc;
+            }
+            .right{
+                max-width: 25%;
+                background:#111;
+                color: #ccc;
+                padding: 15px !important;
+                overflow-y: auto;
+            }
+            @media (max-width: 991.98px) {
+                .left{
+                    min-height: 75%;
+                    height: 75%;
+                }
+                .right{
+                    min-height: 25%;
+                    height: 25%;
+                    max-width: 100%;
+                }
+            }
         </style>
-        <script src='linear-transformation.js'></script>
+    </head>
+    <body class="fill">
+        <div class="fill">
+                <div class="row fill no-gutters">
+                    <div class="left col-lg fill">col-sm-8</div>
+                    <div class="right shadow col-lg-auto fill">col-sm-4</div>
+                </div>
+        </div>
+        
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     </body>
 </html>

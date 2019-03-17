@@ -3,9 +3,7 @@ const C_BACKG = '#222';
 
 // engine vars
 var t = 0; // gametime
-var speed = 1; // gamespeed
-var fps = 120;// max is 1000
-var f = 1000.0/fps*speed;
+var f = 1000.0/120; //120 = fps
 
 var c = document.getElementById('c'),
 cx = c.getContext('2d');
