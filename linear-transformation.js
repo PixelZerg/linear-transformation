@@ -18,9 +18,10 @@ function clearAll(){
 
 (function() {        
   	function resizeCanvas() {
-        c.width = window.innerWidth;
-        c.height = window.innerHeight;
-
+        c.style.width='100%';
+        c.style.height='100%';
+        c.width  = c.offsetWidth;
+        c.height = c.offsetHeight;
         clearAll();
     }
     window.addEventListener('resize', resizeCanvas, false);
@@ -41,6 +42,8 @@ function clearAll(){
     }
     
     function draw(){
+        cx.fillStyle = "#fff";
+        cx.fillRect(c.width-110,c.height-110,100,100);
     }
     
     function clear(){
