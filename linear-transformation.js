@@ -40,7 +40,7 @@ function drawOriginalGrid(){
     }
 
     // y lines
-    for(var i = 0; i < c.width-oy; i+=unit/2){
+    for(var i = 0; i < c.height-oy; i+=unit/2){
         // below y axis
         cx.beginPath();
         cx.moveTo(0,oy+i);
@@ -88,7 +88,7 @@ function drawGrid(){
     }
 
     // y lines
-    for(var i = 0; i < c.width-oy; i+=unit){
+    for(var i = 0; i < c.height-oy; i+=unit){
         // below y axis
         cx.beginPath();
         cx.moveTo(0,oy+i);
