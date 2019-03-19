@@ -4,33 +4,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="content-type" content="text/html; charset=UTF8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
         <style>
-            .fill { 
-                min-height: 100%;
-                height: 100%;
-            }
-            .left{
-                background:#222;
-                color: #ccc;
-            }
-            .right{
-                max-width: 25%;
-                background:#111;
-                color: #ccc;
-                padding: 15px !important;
-                overflow-y: auto;
-            }
-            @media (max-width: 991.98px) {
-                .left{
-                    min-height: 75%;
-                    height: 75%;
-                }
-                .right{
-                    min-height: 25%;
-                    height: 25%;
-                    max-width: 100%;
-                }
-            }
         </style>
     </head>
     <body class="fill">
@@ -39,11 +14,30 @@
                     <div class="left col-lg fill">
                         <canvas id="c"></canvas>
                     </div>
-                    <div class="right shadow col-lg-auto fill">col-sm-4</div>
+                    <div class="right shadow col-lg-auto fill">
+                        <div class="matrix">
+                            <div class="lbrac" style="opacity: 0;"></div>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="number" value="0" step="0.1"></td>
+                                        <td><input type="number" value="0" step="0.1"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="number" value="0" step="0.1"></td>
+                                        <td><input type="number" value="0" step="0.1"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="rbrac" style="opacity: 0;"></div>
+                        </div>
+                    </div>
                 </div>
         </div>
-    
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="linear-transformation.js"></script>
+    <script
+    src="http://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+    crossorigin="anonymous"></script>
+    <script src="ui.js"></script>
     </body>
 </html>
