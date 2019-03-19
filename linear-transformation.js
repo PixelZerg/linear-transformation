@@ -18,6 +18,12 @@ var oy = 0;
 // length of one 'unit' in pixels
 var unit = 100;
 
+// matrix data
+var i0 = 0;
+var i1 = 0;
+var j0 = 0;
+var j1 = 0;
+
 //#region drawing
 function drawOriginalGrid(){
     cx.strokeStyle = C_FORE_DARKEST;
@@ -59,52 +65,80 @@ function drawGrid(){
     cx.strokeStyle = C_FORE_DARKER;
     cx.lineWidth = 0.02*unit;
 
-    // x lines
-    for(var i = 0; i < c.width-ox; i+=unit){
-        // right of x axis
+    // // x lines
+    // for(var i = 0; i < c.width-ox; i+=unit){
+    //     // right of x axis
+    //     cx.beginPath();
+    //     cx.moveTo(ox+i,0);
+    //     cx.lineTo(ox+i,c.height);
+    //     cx.stroke();
+    // }
+    // for(var i = 0; i < ox; i+=unit){
+    //     // left of x axis
+    //     cx.beginPath();
+    //     cx.moveTo(ox-i,0);
+    //     cx.lineTo(ox-i,c.height);
+    //     cx.stroke();
+    // }
+
+    // // y lines
+    // for(var i = 0; i < c.height-oy; i+=unit){
+    //     // below y axis
+    //     cx.beginPath();
+    //     cx.moveTo(0,oy+i);
+    //     cx.lineTo(c.width,oy+i);
+    //     cx.stroke();
+    // }
+    // for(var i = 0; i < oy; i+=unit){
+    //     // above y axis
+    //     cx.beginPath();
+    //     cx.moveTo(0,oy-i);
+    //     cx.lineTo(c.width,oy-i);
+    //     cx.stroke();
+    // }
+
+    // cx.strokeStyle = C_FORE;
+    // cx.lineWidth = 0.04*unit;
+
+    // // x axis
+    // cx.beginPath();
+    // cx.moveTo(0,oy);
+    // cx.lineTo(c.width, oy);
+    // cx.stroke();
+
+    // // y axis
+    // cx.beginPath();
+    // cx.moveTo(ox,0);
+    // cx.lineTo(ox, c.height);
+    // cx.stroke();
+
+
+    //x lines
+    for(var i = -100; i < 100; i+=unit){
         cx.beginPath();
-        cx.moveTo(ox+i,0);
-        cx.lineTo(ox+i,c.height);
-        cx.stroke();
-    }
-    for(var i = 0; i < ox; i+=unit){
-        // left of x axis
-        cx.beginPath();
-        cx.moveTo(ox-i,0);
-        cx.lineTo(ox-i,c.height);
+        cx.moveTo(ox,oy);
+        for (var mu = -1000; mu < 1000; mu+=unit){
+            cx.lineTo(ox+i+mu*i0,oy-mu*i1);
+        }
         cx.stroke();
     }
 
-    // y lines
-    for(var i = 0; i < c.height-oy; i+=unit){
-        // below y axis
-        cx.beginPath();
-        cx.moveTo(0,oy+i);
-        cx.lineTo(c.width,oy+i);
-        cx.stroke();
-    }
-    for(var i = 0; i < oy; i+=unit){
-        // above y axis
-        cx.beginPath();
-        cx.moveTo(0,oy-i);
-        cx.lineTo(c.width,oy-i);
-        cx.stroke();
-    }
-
-    cx.strokeStyle = C_FORE;
-    cx.lineWidth = 0.04*unit;
-
-    // x axis
+    //x axis
     cx.beginPath();
-    cx.moveTo(0,oy);
-    cx.lineTo(c.width, oy);
+    cx.moveTo(ox,oy);
+    for (var mu = -1000; mu < 1000; mu+=unit){
+        cx.lineTo(ox+mu*i0,oy-mu*i1);
+    }
     cx.stroke();
+}
+//#endregion
 
-    // y axis
-    cx.beginPath();
-    cx.moveTo(ox,0);
-    cx.lineTo(ox, c.height);
-    cx.stroke();
+//#region updating
+function updateMatrixData(){
+i0 = parseFloat($('.matrix-data-i0').val());
+i1 = parseFloat($('.matrix-data-i1').val());
+j0 = parseFloat($('.matrix-data-j0').val());
+j1 = parseFloat($('.matrix-data-j1').val());
 }
 //#endregion
 
@@ -177,6 +211,7 @@ function clearAll(){
     }
     
     function update(){
+        updateMatrixData();
     }
     
     function draw(){
