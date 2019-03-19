@@ -171,34 +171,8 @@ function clearAll(){
             }, 10);
         });
         $('.graph-button.home').click(function(){
-            try{
-                clearInterval(interval);
-            }catch{}
-
-            destox = c.width/2;
-            destoy = c.height/2;
-
-            interval = setInterval(function(){
-                if(ox != destox || oy != destoy){
-                    if(ox>destox+2){
-                        ox-=2;
-                    }else if(ox<destox-2){
-                        ox+=2;
-                    }else{
-                        ox=destox;
-                    }
-
-                    if(oy>destoy+2){
-                        oy-=2;
-                    }else if(oy<destoy-2){
-                        oy+=2;
-                    }else{
-                        oy=destoy;
-                    }
-                }else{
-                    clearInterval(interval);
-                }
-            }, 10);
+            ox = c.width/2;
+            oy = c.height/2;
         });
     }
     
